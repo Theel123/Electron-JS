@@ -1,0 +1,141 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Conversores</title>
+<style type="text/css">
+  body{
+
+    background-color: #eee;
+  }
+    .container {
+
+      display:flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    #cm {
+      font-size: 2rem;
+      color: blue;
+    }
+    #farenheit {
+      font-size: 2rem;
+      color: blue;
+    }
+    #kelvin {
+      font-size: 2rem;
+      color: blue;
+    }
+  .fieldset-border {
+  border: 1px groove #ddd !important;
+  padding: 0 1.4em 1.4em 1.4em !important;
+  margin: 0 0 1.5em 0 !important;
+  -webkit-box-shadow: 0px 0px 0px 0px #000;
+  box-shadow: 0px 0px 0px 0px #000;
+}
+.fieldset-border .legend-border {
+  font-size: 1.2em !important;
+  text-align: left !important;
+  width: auto;
+  padding: 0 10px;
+  border-bottom: none;
+}
+  </style>
+  </head>
+  <body>  
+<fieldset class="fieldset-border">
+  <legend class="legend-border">Conversor Polegada > CM</legend>
+    <div class="container">
+    <input type="text" name="pol" id="pol">
+    <br>
+    <div id="cm"></div>
+    <br>
+    <button onclick="converter()">Converter</button>
+ </div>
+ </fieldset>
+
+ <br>
+ <br>
+
+ <fieldset class="fieldset-border">
+  <legend class="legend-border">Conversor Celsius > Farenheit</legend>
+    <div class="container">
+    <input type="text" name="celsius" id="celsius">
+    <br>
+    <div id="farenheit"></div>
+    <br>
+    <button onclick="converterCEmF()">Converter</button>
+ </div>
+ </fieldset>
+
+<br>
+<br>
+
+ <fieldset class="fieldset-border">
+  <legend class="legend-border">Conversor Farenheit > Kelvin</legend>
+    <div class="container">
+    <input type="text" name="farenheitb" id="farenheitb">
+    <br>
+    <div id="kelvin"></div>
+    <br>
+    <button onclick="converterFEmK()">Converter</button>
+ </div>
+ </fieldset>
+
+<br>
+<br>
+
+ <script type="text/javascript">
+
+  function converter() {
+  
+      let pol = document.getElementById("pol").value;
+      let cm  = document.getElementById("cm");
+
+    if (pol > 0) {
+
+      cm.innerHTML = pol * 2.54 + " CM";
+
+    } else if (pol==''||pol==null){
+
+      alert("Por favor digite um valor para que o calculo seja feito");
+      cm.innerHTML = 0 + " CM";
+    }
+  }
+
+  function converterCEmF() {
+
+    let celsius = document.getElementById("celsius").value;
+    let farenheit = document.getElementById("farenheit");
+
+    if (celsius > 0) {
+
+       farenheit.innerHTML = (celsius *9/5 +32) + " °F";
+
+   } else if (celsius==''||celsius==null)     {
+
+      alert("Por favor digite um valor para que o calculo seja feito");
+      farenheit.innerHTML = 0 + " °F";
+  }
+}
+
+    function converterFEmK() {
+
+      let farenheit = document.getElementById("farenheitb").value;
+      let kelvin = document.getElementById("kelvin");
+      var farenheitCalc = document.getElementById("farenheit").value;
+      alert(farenheitCalc);
+
+    if (farenheit > 0) {
+
+        kelvin.innerHTML = (farenheit - 32) * 5/9 +273.15 + " °K";
+     
+    } else if (farenheit==""||farenheit==null) {
+
+        alert("Por favor digite um valor para que o calculo seja feito");
+        kelvin.innerHTML =  0+" °K";
+    }
+  }
+  </script>
+  </body>
+  </html>
